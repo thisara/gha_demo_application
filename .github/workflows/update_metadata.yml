@@ -42,7 +42,7 @@ jobs:
           path: './taskdefs.json'
           prop_path: 'metadata'
           
-      - run: echo ${{steps.metadata.outputs}}
+      - run: pwd
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
