@@ -39,10 +39,10 @@ jobs:
         id: metadata
         uses: notiz-dev/github-action-json-property@release
         with:
-          path: '../../../taskdefs.json'
+          path: 'taskdefs.json'
           prop_path: 'metadata'
           
-      - run: echo ${{steps.metadata.outputs.prop}}
+      - run: echo ${{steps.metadata.outputs}}
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
