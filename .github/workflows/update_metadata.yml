@@ -35,6 +35,14 @@ jobs:
             echo "$file was changed"
           done
 
+      - name: post http api
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://nonprod-foxtel.orkesconductor.com/api/metadata/taskdefs'
+          method: 'POST'
+          data: '[{"name":"binge_meta_gha_test_task","retryCount":3,"retryLogic":"FIXED","retryDelaySeconds":10,"timeoutSeconds":300,"timeoutPolicy":"TIME_OUT_WF","responseTimeoutSeconds":180,"ownerEmail":"thi@gmail.com"}]'
+          customHeaders: '{"X-Authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtqbVlNWThEV2VOU1lKZmZSSjFXNSJ9.eyJuaWNrbmFtZSI6InRoaXNhcmEuYWxhd2FsYSIsIm5hbWUiOiJ0aGlzYXJhLmFsYXdhbGFAZm94dGVsLmNvbS5hdSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8yMmM1YTZhMjNiNTg2ZTllZTY1N2ZkYWYwODdmNGI3Mz9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRnRoLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIyLTA5LTE3VDAwOjQ0OjQwLjQ5MVoiLCJlbWFpbCI6InRoaXNhcmEuYWxhd2FsYUBmb3h0ZWwuY29tLmF1IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vb3JrZXMtdGVzdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI5ODYxZGFlNDg0ZmMwMDY4MjJmZTRjIiwiYXVkIjoiMWFISHZFRnR4S2xnQWdQSTE1M3E1NGt4MGFJNlZVcUgiLCJpYXQiOjE2NjM1ODQ5MzcsImV4cCI6MTY2MzYyMDkzNywic2lkIjoia2d2NXk0b2c5RkJWSGhQdkFGVkpLT196VUFoQnp5eUUiLCJub25jZSI6Ik4yY3RUVlZVYVRoTVVEUnNPVzVCUmxGSVVEazJNazVsUlZsak1XUmhXblY1V0dscWNFWmtTeTFhZEE9PSJ9.Opqnn7UPTExsYyzZMxIJQby3Tsx4j1GYtCs80R3CWPOw2ucOzE0vktjIPMLFg91GnvCybrTqOluxZKYaTwUIE8DVO7lPaZL4UUK5k8GstjhYuIYJK8L5wZ7b2TDeNfESPBhFgDqP3Yexd4xhjOEEWCd3wqel1w_EmxFf9Cn3D2vq_f3HiAsJa3VHDx09yYRFkfWQfQnunyFrWuDPvP6By7cXlPmdY8Wvkfra0EofgsmuiBfM0gkEi2O0NVmNjil1lDllAloc6u6cD46UvcXDhtA8pAuHHx46yWr_vAiWdr5RWUmaR1VpgY5UlROgYWI8c9l2Sl15f4Uk8XAOIs4JVw"}'
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
