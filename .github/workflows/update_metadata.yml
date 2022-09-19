@@ -36,7 +36,7 @@ jobs:
           done
           
       - name: read json
-        id: meta
+        id: metadata
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'taskdefs.json'
