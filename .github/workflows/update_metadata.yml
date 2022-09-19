@@ -34,6 +34,15 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_and_modified_files }}; do
             echo "$file was changed"
           done
+          
+      - name: read json
+        id: meta
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: 'taskdefs.json'
+          prop_path: 'metadata'
+          
+      - run: echo ${{steps.metadata.outputs.prop}}
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
