@@ -1,0 +1,12 @@
+[
+  {
+    "name": "binge_meta_gha_test_task2",
+    "retryCount": 3,
+    "retryLogic": "FIXED",
+    "retryDelaySeconds": 10,
+    "timeoutSeconds": 300,
+    "timeoutPolicy": "TIME_OUT_WF",
+    "responseTimeoutSeconds": 180,
+    "ownerEmail":"thisara.alawala@gmail.com"
+  }
+]
