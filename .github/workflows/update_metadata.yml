@@ -42,7 +42,7 @@ jobs:
         id: metadata
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./taskdefs.json
+          path: ./definitions/taskdefs/taskdefs.json
 
       - name: read config
         id: config
