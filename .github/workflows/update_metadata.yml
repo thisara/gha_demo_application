@@ -51,7 +51,7 @@ jobs:
           path: ./config.json
           
       - name: print
-        run: echo "${{ steps.config.outputs.content }}"
+        run: echo "${{ steps.config.outputs.content.taskdefs }}"
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
