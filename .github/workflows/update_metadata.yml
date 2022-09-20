@@ -46,12 +46,12 @@ jobs:
 
       - name: read config
         id: config
-        uses: notiz-dev/github-action-json-property@release
+        uses: juliangruber/read-file-action@v1
         with:
           path: ./config.json
           
       - name: print
-        run: echo "${{ steps.config.outputs.taskdefs }}"
+        run: echo "${{fromJson(steps.config.outputs.taskdefs)}}"
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
