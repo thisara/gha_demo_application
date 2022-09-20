@@ -45,7 +45,7 @@ jobs:
           path: ./taskdefs.json
 
       - name: print
-        run: echo "${{ steps.package.outputs.content }}"
+        run: echo "${{ steps.metadata.outputs.content }}"
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
