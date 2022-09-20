@@ -40,10 +40,12 @@ jobs:
           
       - name: read json
         id: metadata
-        uses: notiz-dev/github-action-json-property@release
+        uses: juliangruber/read-file-action@v1
         with:
-          path: './taskdefs.json'
-          prop_path: ''
+          path: ./taskdefs.json
+
+      - name: print
+        run: echo "${{ steps.package.outputs.content }}"
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
