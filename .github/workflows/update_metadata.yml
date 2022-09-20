@@ -44,8 +44,14 @@ jobs:
         with:
           path: ./taskdefs.json
 
+      - name: read config
+        id: config
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./config.json
+          
       - name: print
-        run: echo "${{ steps.metadata.outputs.content }}"
+        run: echo "${{ steps.config.outputs.content.taskdefs }}"
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
