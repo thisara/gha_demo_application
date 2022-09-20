@@ -56,7 +56,7 @@ jobs:
       - name: post http api
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://nonprod-foxtel.orkesconductor.com/api/metadata/taskdefs'
+          url: "${{ fromJson(steps.config.outputs.content).taskdefs }}"
           method: 'POST'
           data: "${{ steps.metadata.outputs.content }}"
           customHeaders: '{"X-Authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtqbVlNWThEV2VOU1lKZmZSSjFXNSJ9.eyJuaWNrbmFtZSI6InRoaXNhcmEuYWxhd2FsYSIsIm5hbWUiOiJ0aGlzYXJhLmFsYXdhbGFAZm94dGVsLmNvbS5hdSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8yMmM1YTZhMjNiNTg2ZTllZTY1N2ZkYWYwODdmNGI3Mz9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRnRoLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIyLTA5LTIwVDA3OjEyOjE4LjYxOFoiLCJlbWFpbCI6InRoaXNhcmEuYWxhd2FsYUBmb3h0ZWwuY29tLmF1IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vb3JrZXMtdGVzdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI5ODYxZGFlNDg0ZmMwMDY4MjJmZTRjIiwiYXVkIjoiMWFISHZFRnR4S2xnQWdQSTE1M3E1NGt4MGFJNlZVcUgiLCJpYXQiOjE2NjM2Njc3MjEsImV4cCI6MTY2MzcwMzcyMSwic2lkIjoia2d2NXk0b2c5RkJWSGhQdkFGVkpLT196VUFoQnp5eUUiLCJub25jZSI6Ik1EQlRibms0TVc1RE5YaHNabGxqWTFkYU9WSktWbFl1VDFOMGVVVTFWa0U0Y2pBNVZsTjJlbTB1WVE9PSJ9.fWHRGbILFVXIjlW1ov7jsfOMYEv7uwZu1kz5DtHqO91iMaFUtjPBahBCjRvy5FiVJIzD0QuDMXePSjtllm3dfE4gvaEvKCKvUlkiZRWZ2uoPx6hvixpNcG4EZVtvhfZb-q0gmMDqPEkTfCgJHNKadN-85Hn6cKDL-ic4AFBRWQMxjXMSrE2Qu2lO9-KZIy_ndMpOx9yIvmjow7UYX9WVbRV9his59RRDMJpQ1cxsh9WGZFgpRJkqelepSqzT6i_NMjc8SvXIx_08bLH3aP7ieGTpQm0Ck-ShYoj4Fpr-XG12cbtdcHzrNPlNzp3CovZ7HiDTKjO5Wo2DD7a4wfNbJA"}'
