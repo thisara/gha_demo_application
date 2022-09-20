@@ -35,14 +35,15 @@ jobs:
             echo "$file was changed"
           done
           
+      - name: print path
+        run: pwd
+        
       - name: read json
         id: metadata
         uses: notiz-dev/github-action-json-property@release
         with:
           path: './taskdefs.json'
           prop_path: ''
-          
-      - run: pwd
 
       - name: post http api
         uses: fjogeleit/http-request-action@v1
