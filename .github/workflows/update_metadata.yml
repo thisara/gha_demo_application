@@ -46,7 +46,7 @@ jobs:
 
       - name: read config
         id: config
-        uses: juliangruber/read-file-action@v1
+        uses: notiz-dev/github-action-json-property@release
         with:
           path: ./config.json
           
